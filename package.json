@@ -1,0 +1,26 @@
+{
+  "name": "f1-node-orm",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node src/indito.js",
+    "dev": "node --watch src/indito.js",
+    "import": "node src/utils/importFromTxt.js",
+    "seed-admin": "node src/utils/seedAdmin.js"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "connect-flash": "^0.1.1",
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "express-ejs-layouts": "^2.5.1",
+    "express-session": "^1.17.3",
+    "method-override": "^3.0.0",
+    "mysql2": "^3.11.3",
+    "passport": "^0.7.0",
+    "passport-local": "^1.0.0",
+    "sequelize": "^6.37.3"
+  }
+}
