@@ -1,0 +1,31 @@
+<h2>Adatbázis – 3 tábla minta</h2>
+
+<h4>Pilóták (10)</h4>
+<table class="table table-sm table-hover">
+  <thead><tr><th>AZ</th><th>Név</th><th>Nem</th><th>Szüldátum</th><th>Nemzet</th></tr></thead>
+  <tbody>
+  <% pilots.forEach(p=> { %>
+    <tr><td><%= p.az %></td><td><%= p.nev %></td><td><%= p.nem %></td><td><%= p.szuldat %></td><td><%= p.nemzet %></td></tr>
+  <% }) %>
+  </tbody>
+</table>
+
+<h4>Grand Prix (10)</h4>
+<table class="table table-sm table-hover">
+  <thead><tr><th>Dátum</th><th>Név</th><th>Helyszín</th></tr></thead>
+  <tbody>
+  <% gps.forEach(g=> { %>
+    <tr><td><%= g.datum %></td><td><%= g.nev %></td><td><%= g.helyszin %></td></tr>
+  <% }) %>
+  </tbody>
+</table>
+
+<h4>Eredmények (10)</h4>
+<table class="table table-sm table-hover">
+  <thead><tr><th>Dátum</th><th>PilótaAZ</th><th>Helyezés</th><th>Hiba</th><th>Csapat</th><th>Típus</th><th>Motor</th></tr></thead>
+  <tbody>
+  <% results.forEach(r=> { %>
+    <tr><td><%= r.datum %></td><td><%= r.pilotaaz %></td><td><%= r.helyezes %></td><td><%= r.hiba %></td><td><%= r.csapat %></td><td><%= r.tipus %></td><td><%= r.motor %></td></tr>
+  <% }) %>
+  </tbody>
+</table>
