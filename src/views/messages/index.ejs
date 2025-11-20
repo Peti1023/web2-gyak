@@ -1,0 +1,14 @@
+<h2>Beérkezett üzenetek</h2>
+<table class="table table-striped">
+  <thead><tr><th>Időpont</th><th>Név</th><th>Email</th><th>Üzenet</th></tr></thead>
+  <tbody>
+  <% list.forEach(m => { %>
+    <tr>
+      <td><%= new Date(m.createdAt).toLocaleString('hu-HU') %></td>
+      <td><%= m.name %></td>
+      <td><%= m.email %></td>
+      <td><%= m.content %></td>
+    </tr>
+  <% }) %>
+  </tbody>
+</table>
