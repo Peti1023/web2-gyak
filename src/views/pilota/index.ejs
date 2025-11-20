@@ -1,0 +1,29 @@
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h2>Pilóták</h2>
+  <% if (user && user.role==='admin') { %>
+    <a class="btn btn-primary" href="/pilota/uj">Új pilóta</a>
+  <% } %>
+</div>
+
+<table class="table table-striped">
+  <thead><tr><th>AZ</th><th>Név</th><th>Nem</th><th>Szüldátum</th><th>Nemzet</th><th></th></tr></thead>
+  <tbody>
+  <% list.forEach(p=> { %>
+    <tr>
+      <td><%= p.az %></td>
+      <td><%= p.nev %></td>
+      <td><%= p.nem %></td>
+      <td><%= p.szuldat %></td>
+      <td><%= p.nemzet %></td>
+      <td>
+        <% if (user && user.role==='admin') { %>
+        <a class="btn btn-sm btn-outline-secondary" href="/pilota/<%= p.az %>/szerkeszt">Szerkeszt</a>
+        <form method="post" action="/pilota/<%= p.az %>/delete" class="d-inline">
+          <button class="btn btn-sm btn-outline-danger" onclick="return confirm('Biztos törlöd?')">Törlés</button>
+        </form>
+        <% } %>
+      </td>
+    </tr>
+  <% }) %>
+  </tbody>
+</table>
