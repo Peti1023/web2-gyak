@@ -15,7 +15,20 @@ import routes from './routes/index.js';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const app = express();
+const app = express({
+  
+});
+
+// run the sequlize sync
+(async () => {
+  try {
+    await sequelize.authenticate();
+    console.log('MySQL kapcsolat rendben.');
+    await sequelize.sync();
+  } catch (e) {
+    console.error('Adatbázis hiba:', e);
+  }
+})();
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
@@ -45,8 +58,8 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use('/', routes);
-
+app.use('/app014', routes);
+app.use('/app014/image', express.static(path.join(__dirname, '/public/image')));
 (async () => {
   try {
     await sequelize.authenticate();

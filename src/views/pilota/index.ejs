@@ -17,8 +17,8 @@
       <td><%= p.nemzet %></td>
       <td>
         <% if (user && user.role==='admin') { %>
-        <a class="btn btn-sm btn-outline-secondary" href="/pilota/<%= p.az %>/szerkeszt">Szerkeszt</a>
-        <form method="post" action="/pilota/<%= p.az %>/delete" class="d-inline">
+        <a class="btn btn-sm btn-outline-secondary" href="/app014/pilota/<%= p.az %>/szerkeszt">Szerkeszt</a>
+        <form method="post" action="/app014/pilota/<%= p.az %>/delete" class="d-inline">
           <button class="btn btn-sm btn-outline-danger" onclick="return confirm('Biztos törlöd?')">Törlés</button>
         </form>
         <% } %>

@@ -17,7 +17,7 @@ router.post('/kapcsolat', async (req, res) => {
   const { name, email, content } = req.body;
   await Message.create({ name, email, content });
   req.flash('success', 'Üzenet elküldve!');
-  res.redirect('/uzenetek/kapcsolat');
+  res.redirect('/app014/uzenetek/kapcsolat');
 });
 
 export default router;

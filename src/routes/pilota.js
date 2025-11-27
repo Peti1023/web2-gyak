@@ -17,10 +17,10 @@ router.post('/', ensureRole('admin'), async (req, res) => {
   try {
     await Pilot.create(req.body);
     req.flash('success', 'Pilóta létrehozva.');
-    res.redirect('/pilota');
+    res.redirect('/app014/pilota');
   } catch (e) {
     req.flash('error', e.message);
-    res.redirect('/pilota/uj');
+    res.redirect('/app014/pilota/uj');
   }
 });
 
@@ -34,10 +34,10 @@ router.post('/:az', ensureRole('admin'), async (req, res) => {
     const item = await Pilot.findByPk(req.params.az);
     await item.update(req.body);
     req.flash('success', 'Mentve.');
-    res.redirect('/pilota');
+    res.redirect('/app014/pilota');
   } catch (e) {
     req.flash('error', e.message);
-    res.redirect('/pilota');
+    res.redirect('/app014/pilota');
   }
 });
 
@@ -45,10 +45,10 @@ router.post('/:az/delete', ensureRole('admin'), async (req, res) => {
   try {
     await Pilot.destroy({ where: { az: req.params.az }});
     req.flash('success', 'Törölve.');
-    res.redirect('/pilota');
+    res.redirect('/app014/pilota');
   } catch (e) {
     req.flash('error', e.message);
-    res.redirect('/pilota');
+    res.redirect('/app014/pilota');
   }
 });
 

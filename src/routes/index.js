@@ -23,4 +23,7 @@ router.use('/pilota', pilotaRoutes);
 router.use('/adatbazis', dbRoutes);
 router.use('/uzenetek', msgRoutes);
 
+// static files in /public are served in server.js with app.use(express.static(...))
+
+
 export default router;

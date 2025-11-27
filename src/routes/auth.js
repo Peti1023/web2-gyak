@@ -15,10 +15,10 @@ router.post('/register', async (req, res) => {
     const passwordHash = await bcrypt.hash(password, 10);
     await User.create({ email, passwordHash, role: 'registered' });
     req.flash('success', 'Sikeres regisztráció! Jelentkezz be.');
-    res.redirect('/login');
+    res.redirect('/app014/login');
   } catch (e) {
     req.flash('error', 'Regisztrációs hiba: ' + e.message);
-    res.redirect('/register');
+    res.redirect('/app014/register');
   }
 });
 
@@ -27,8 +27,8 @@ router.get('/login', (req, res) => {
 });
 
 router.post('/login', passport.authenticate('local', {
-  successRedirect: '/',
-  failureRedirect: '/login',
+  successRedirect: '/app014',
+  failureRedirect: '/app014/login',
   failureFlash: true
 }));
 
@@ -36,7 +36,7 @@ router.post('/logout', (req, res, next) => {
   req.logout(err => {
     if (err) return next(err);
     req.flash('success', 'Kijelentkezve.');
-    res.redirect('/');
+    res.redirect('/app014');
   });
 });
 
